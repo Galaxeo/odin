@@ -4,7 +4,7 @@ function FizzBuzz(num) {
   if (num % 5 == 0) { str += "Buzz"; }
   return str;
 }
-let unused = 12;
+const grepo = "dog";
 let answer = 15;//parseInt(prompt("Please enter number for FizzBuzz"))
 for (let i = 1; i <= answer; i++) {
   if (FizzBuzz(i) == "") {
