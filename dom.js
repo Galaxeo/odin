@@ -19,7 +19,15 @@ meToo.textContent = "ME TOO!";
 document.body.appendChild(div);
 
 const btn = document.querySelector('#btn');
-btn.addEventListener('click', () => {
-  alert("Hello World");
+btn.addEventListener('click', function(e) {
+  console.log(e.target);
+  e.target.style.background = 'blue';
 });
 
+const btns = document.querySelectorAll('button');
+//Iterating through each button using .forEach
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    alert(button.id);
+  });
+});
