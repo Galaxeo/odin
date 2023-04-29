@@ -26,7 +26,7 @@ btn.addEventListener('click', function(e) {
 
 const btns = document.querySelectorAll('button');
 //Iterating through each button using .forEach
-buttons.forEach((button) => {
+btns.forEach((button) => {
   button.addEventListener('click', () => {
     alert(button.id);
   });
