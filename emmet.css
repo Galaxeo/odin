@@ -1,0 +1,10 @@
+.class {
+  /*pos */
+  position: relative;
+/*bg*/
+  background: #000;
+/*bgc*/
+  background-color: #fff;
+  /*w10*/
+  width: 10px;
+}
