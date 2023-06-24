@@ -1,66 +1,58 @@
-form {
-  /* Center the form on the page */
-  margin: 0 auto;
-  width: 400px;
-  /* Form outline */
-  padding: 1em;
-  border: 1px solid #ccc;
-  border-radius: 1em;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+* {
+   appearance: none;
+   font-family: 'Open Sans', sans-serif;
+   margin: 0;
+   padding: 0;
 }
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
 }
-
-form li + li {
-  margin-top: 1em;
+.flexImage {
+  background-image: url("karFanart.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 35vw;
+  position: absolute;
 }
-
+.form1{
+  display: flex;
+  position: absolute;
+  left: 35vw;
+  top: 30vh;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px;
+  margin-right: 20vw;
+}
+.imageHeader {
+  margin-top: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 13vw;
+  height: 200px;
+  background: rgba(60, 60, 60, .9);
+  color: #e1e1e1;
+}
+.flexInput {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 label {
-  /* Uniform size & alignment */
   display: inline-block;
-  width: 90px;
-  text-align: right;
+  width: 85px;
+  text-align: left;
 }
-
-input,
-textarea {
-  /* To make sure that all text fields have the same font settings
-     By default, textareas have a monospace font */
-  font: 1em sans-serif;
-
-  /* Uniform text field size */
-  width: 300px;
-  box-sizing: border-box;
-
-  /* Match form field borders */
-  border: 1px solid #999;
+input {
+  border-radius: 5px;
+  border: 1px solid grey;
+  width: 10vw;
+  height: 3vh;
 }
-
-input:focus,
-textarea:focus {
-  /* Additional highlight for focused elements */
-  border-color: #000;
+input:invalid {
+  border: 1px solid red;
 }
-
-textarea {
-  /* Align multiline text fields with their labels */
-  vertical-align: top;
-
-  /* Provide space to type some text */
-  height: 5em;
-}
-
-.button {
-  /* Align buttons with the text fields */
-  padding-left: 90px; /* same size as the label elements */
-}
-
-button {
-  /* This extra margin represent roughly the same space as the space
-     between the labels and their text fields */
-  margin-left: 0.5em;
-}
-
