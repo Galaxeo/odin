@@ -23,6 +23,7 @@
   flex-direction: row;
 }
 .form1{
+  box-shadow: 15px;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -31,7 +32,6 @@
   flex-wrap: wrap;
   gap: 15px;
   margin: 25px;
-  margin-right: 20vw;
 }
 .imageHeader {
   margin-top: 30vh;
@@ -45,6 +45,7 @@
 }
 .flexInput {
   display: flex;
+  position: relative;
   align-items: center;
   gap: 5px;
   flex-direction: row;
@@ -54,12 +55,33 @@ label {
   width: 85px;
   text-align: left;
 }
-input {
+.flexInput input {
   border-radius: 5px;
   border: 1px solid grey;
-  width: 10vw;
-  height: 3vh;
+  width: 15vw;
+  height: 4vh;
+}
+.flexInput input::placeholder {
+  text-align: left;
+}
+.placeLabel {
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  background-color: white;
+  font-size: 15px;
+  transition: all 0.5s ease-out;
+}
+.flexInput input:not(:focus) ~ .placeLabel {
+  display: none;
+}
+.flexInput input:focus::placeholder {
+  color: white;
 }
 input:invalid {
   border: 1px solid red;
+}
+.form1>button{
+  border-radius: 5px;
+  border: 1px solid gray;
 }
