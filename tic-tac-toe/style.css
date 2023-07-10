@@ -6,14 +6,23 @@
   flex-direction: column;
   align-items: center;
 }
+#nameForm {
+  margin-bottom: 20px;
+}
 .gameBoard {
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
   gap: 7px;
 }
+.hidden {
+  display: none;
+}
 .gameTile {
   font-size: 30px;
   background: lightgrey;
   border-radius: 10px;
+}
+.restart {
+  margin-bottom: 20px;
 }

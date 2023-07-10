@@ -1,5 +1,8 @@
 const tiles = document.querySelectorAll('.gameTile');
 var flag = true;
+const btn = document.querySelector(".submit");
+const restart = document.querySelector(".restart");
+
 function checkRows() {
   if (tiles[0].innerHTML == tiles[1].innerHTML && tiles[0].innerHTML == tiles[2].innerHTML && tiles[0].innerHTML != '') {
     return true;
@@ -36,6 +39,32 @@ function checkDiags() {
     return false;
   }
 }
+function checkTie() {
+  for (const tile of tiles) {
+    if (tile.innerHTML == '') {
+      return false;
+    } else {
+      //pass
+    }
+  }
+  return true;
+}
+let p1name = '';
+let p2name = '';
+
+btn.addEventListener("click", (event) => {
+  event.preventDefault();
+  p1name = document.getElementById("player1").value;
+  p2name = document.getElementById("player2").value;
+  document.querySelector("#gameContainer").classList.toggle("hidden");
+  document.querySelector("#nameForm").classList.toggle("hidden");
+  document.querySelector(".restart").classList.toggle("hidden");
+})
+
+restart.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.reload();
+})
 
 tiles.forEach((tile) => {
   tile.addEventListener('click', () => {
@@ -50,11 +79,13 @@ tiles.forEach((tile) => {
       flag = true;
     }
     if (checkRows() || checkColumns() || checkDiags()) {
-      if (flag) {
-        alert('X player won!')
+      if (!flag) {
+        alert(p1name + ' won!')
       } else {
-        alert('O player won!')
+        alert(p2name + ' won!')
       }
+    } else if (checkTie()) {
+      alert("Tie!");
     }
   })
 })

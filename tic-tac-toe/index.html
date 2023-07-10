@@ -11,16 +11,26 @@
 
 <body class="game">
   <h1>Un juego de Tic-tac-toe</h1>
-  <div class="gameBoard">
-    <button class="gameTile" id="1"></button>
-    <button class="gameTile" id="2"></button>
-    <button class="gameTile" id="3"></button>
-    <button class="gameTile" id="4"></button>
-    <button class="gameTile" id="5"></button>
-    <button class="gameTile" id="6"></button>
-    <button class="gameTile" id="7"></button>
-    <button class="gameTile" id="8"></button>
-    <button class="gameTile" id="9"></button>
+  <form action="" id="nameForm">
+    <label for="player1">Player 1 (O)</label>
+    <input type="text" id="player1" name="p1name">
+    <label for="player2">Player 2 (X)</label>
+    <input type="text" id="player2" name="p2name">
+    <button class="submit">Play!</button>
+  </form>
+  <button class="restart hidden">Restart</button>
+  <div id="gameContainer" class="hidden">
+    <div class="gameBoard">
+      <button class="gameTile" id="1"></button>
+      <button class="gameTile" id="2"></button>
+      <button class="gameTile" id="3"></button>
+      <button class="gameTile" id="4"></button>
+      <button class="gameTile" id="5"></button>
+      <button class="gameTile" id="6"></button>
+      <button class="gameTile" id="7"></button>
+      <button class="gameTile" id="8"></button>
+      <button class="gameTile" id="9"></button>
+    </div>
   </div>
 </body>
 
