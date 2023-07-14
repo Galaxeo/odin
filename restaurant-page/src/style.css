@@ -23,7 +23,10 @@
   font-family: sans-serif;
   width: 80vw;
 }
-#cheesecake {
+#menuPage {
+  margin: 15px;
+}
+#menuPage img {
   width: 35vw;
 }
 .header {
