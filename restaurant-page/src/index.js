@@ -2,6 +2,7 @@ import './style.css';
 import homePage from './homePage.js';
 import menuPage from './menuPage.js';
 import openPage from './openPage.js';
+import contactPage from './contactpage.js';
 
 const contentCont = document.body.querySelector('.content');
 
@@ -26,7 +27,9 @@ function headNav() {
   const contact = document.createElement('button');
   contact.id = "contactBtn";
   contact.innerHTML = "Contact";
-  contact.onclick = "openPage('contactBtn')";
+  contact.addEventListener("click", () => {
+    openPage("contactPage");
+  });
 
 
   container.appendChild(home);
@@ -38,8 +41,11 @@ function headNav() {
 const homePageEle = homePage();
 const headerEle = headNav();
 const menuPageEle = menuPage();
+const contactEle = contactPage();
 
 contentCont.appendChild(headerEle);
 contentCont.appendChild(homePageEle);
 contentCont.appendChild(menuPageEle);
+contentCont.appendChild(contactEle);
+
 document.getElementById("homeBtn").click();

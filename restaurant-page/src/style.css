@@ -17,10 +17,9 @@
 }
 #restImg {
   height: auto;
-  width: 80vw;
+  width: 60vw;
 }
 .restInfo {
-  font-family: sans-serif;
   width: 80vw;
 }
 #menuPage {
@@ -29,7 +28,15 @@
 #menuPage img {
   width: 35vw;
 }
+.menuItem {
+  display: flex;
+  width: 50vw;
+  gap: 15px;
+}
 .header {
   display: flex;
   gap: 5px;
+}
+#contactPage {
+  margin: 15px;
 }
