@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;
 }
 #restImg {
   height: auto;
@@ -21,4 +22,11 @@
 .restInfo {
   font-family: sans-serif;
   width: 80vw;
+}
+#cheesecake {
+  width: 35vw;
+}
+.header {
+  display: flex;
+  gap: 5px;
 }

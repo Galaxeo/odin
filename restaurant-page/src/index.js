@@ -1,9 +1,34 @@
 import './style.css';
-import mainImg from './dog.png';
 import background from './notarestaurant.jpg';
+import cheesecake from './cheesecake.jpg';
 
 const contentCont = document.body.querySelector('.content');
-function content() {
+
+function headNav() {
+  const container = document.createElement('div');
+  container.classList.add('header');
+
+  const home = document.createElement('button');
+  home.id = "homeBtn";
+  home.innerHTML = "Home";
+
+  const menu = document.createElement('button');
+  menu.id = "menuBtn";
+  menu.innerHTML = "Menu";
+
+  const contact = document.createElement('button');
+  contact.id = "contactBtn";
+  contact.innerHTML = "Contact";
+
+
+  container.appendChild(home);
+  container.appendChild(menu);
+  container.appendChild(contact);
+
+  return container;
+}
+
+function homePage() {
   const container = document.createElement('div');
   container.classList.add('container');
   const header = document.createElement('h1');
@@ -16,10 +41,24 @@ function content() {
   img.src = background;
   img.id = 'restImg';
 
+
   container.appendChild(header);
   container.appendChild(img);
-  container.appendChild(info);
 
   return container;
 }
-contentCont.appendChild(content());
+function menuPage() {
+  const container = document.createElement('div');
+  container.classList.add('container');
+
+  const cheesecakeImg = new Image();
+  cheesecakeImg.src = cheesecake;
+  cheesecakeImg.id = 'cheesecake';
+
+  container.appendChild(cheesecakeImg);
+
+  return container;
+}
+contentCont.appendChild(headNav());
+contentCont.appendChild(homePage());
+contentCont.appendChild(menuPage());
