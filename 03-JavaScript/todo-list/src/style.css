@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+* {
+  appearance: none; 
+  background-image: linear-gradient(#C8D5BB, #47585C);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.header {
+  background-color: transparent;
+  color: #47585C;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
