@@ -2,6 +2,7 @@ import formHelper from './formHelper.js';
 function createForm() {
   const formCont = document.createElement('div');
   formCont.classList.add('formCont');
+  formCont.classList.add('hidden');
 
   const form = document.createElement('form');
   form.classList.add('cardForm');

@@ -1,11 +1,13 @@
 import './style.css';
-import card from './form.js';
+import createForm from './form.js';
 
-const formEle = card();
+const formEle = createForm();
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 let interval = null;
+
+const main = document.querySelector('.main');
 
 //credit to hyperplexed
 document.querySelector("h1").onclick = event => {
@@ -31,5 +33,9 @@ document.querySelector("h1").onclick = event => {
 
     iteration += 1 / 3;
   }, 30);
+}
+document.querySelector(".createTask").onclick = () => {
+  formEle.classList.toggle('hidden');
+  document.querySelector(".main").classList.toggle('blur');
 }
 document.body.appendChild(formEle);

@@ -7,6 +7,7 @@
   background-attachment: fixed;
   font-family: 'Noto Sans JP', sans-serif;
 }
+
 .header {
   color: #47585C;
   display: grid;
@@ -17,20 +18,46 @@
   padding: 0rem 1vw;
   border-radius: clamp(0.4rem, 0.75vw, 1rem);
 }
-
 .headerText:hover {
   color: #C8D5BB;
   background-image: linear-gradient(rgba(71, 88, 92, .65), rgba(71, 88, 92, .65));
 }
 
-.formCont {
-  background-image: linear-gradient(rgba(71, 88, 92, .75), rgba(71, 88, 92, .75));
+.createTask {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #47585C;
+  background-image: linear-gradient(rgba(71, 88, 92, .65), rgba(71, 88, 92, .65));
+}
+.createTask:hover {
+  border: 2px solid white;
 }
 
+.blur {
+  height: auto;
+  width: auto;
+  filter: blur(4px);
+}
+.hidden {
+  display: none;
+}
+/* Form Styling */
+.formCont { /*Form container*/
+  position: absolute;
+  z-index: 200;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(71, 88, 92, .65), rgba(71, 88, 92, .65));
+}
+.cardForm { /*The form itself*/
+  background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, 0));
+}
 .gridRow {
   display: flex;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   gap: 15px;
   background-image: linear-gradient(rgba(71, 88, 92, .65), rgba(71, 88, 92, .65));
