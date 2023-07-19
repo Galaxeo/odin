@@ -2,14 +2,45 @@
 * {
   appearance: none; 
   background-image: linear-gradient(#C8D5BB, #47585C);
+  background-color: transparent;
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: 'Noto Sans JP', sans-serif;
 }
 .header {
-  background-color: transparent;
   color: #47585C;
   display: grid;
   align-items: center;
   justify-content: center;
+}
+.headerText {
+  padding: 0rem 1vw;
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+}
+
+.headerText:hover {
+  color: #C8D5BB;
+  background-image: linear-gradient(rgba(71, 88, 92, .65), rgba(71, 88, 92, .65));
+}
+
+.formCont {
+  background-image: linear-gradient(rgba(71, 88, 92, .75), rgba(71, 88, 92, .75));
+}
+
+.gridRow {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 15px;
+  background-image: linear-gradient(rgba(71, 88, 92, .65), rgba(71, 88, 92, .65));
+}
+.gridRow input {
+  padding: 10px;
+  border: 2px solid #C8D5BB;
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, 0));
+}
+.gridRow label {
+  background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, 0));
 }
