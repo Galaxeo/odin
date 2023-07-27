@@ -1,0 +1,3 @@
+[submodule "03-JavaScript/todo-list"]
+	path = 03-JavaScript/todo-list
+	url = git@github.com:Galaxeo/todo-list.git
