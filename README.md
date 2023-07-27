@@ -15,4 +15,5 @@ This repository is dedicated to the work done to learn web development skills th
 - #### [Library](https://github.com/Galaxeo/odin/tree/main/03-JavaScript/library)
 - #### [Tic-Tac-Toe](https://github.com/Galaxeo/odin/tree/main/03-JavaScript/tic-tac-toe)
 - #### [Restaurant Page](https://github.com/Galaxeo/odin/tree/main/03-JavaScript/restaurant-page)
+- #### [To-Do List](https://github.com/Galaxeo/todo-list)
 #### More to be updated in the future
