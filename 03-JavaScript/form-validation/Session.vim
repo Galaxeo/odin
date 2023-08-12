@@ -13,18 +13,17 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +25 ~/code/odin/03-JavaScript/form-validation/script.js
-badd +280 ~/code/odin/03-JavaScript/form-validation/index.html
-badd +3 ~/code/odin/03-JavaScript/form-validation/style.css
+badd +13 ~/code/odin/03-JavaScript/APIs/fetchData.html
+badd +7 ~/code/odin/03-JavaScript/APIs/fetchData.js
 argglobal
 %argdel
-edit ~/code/odin/03-JavaScript/form-validation/index.html
+edit ~/code/odin/03-JavaScript/APIs/fetchData.html
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
-vsplit
-1wincmd h
+split
+1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -35,33 +34,32 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 85 + 85) / 171)
-exe 'vert 2resize ' . ((&columns * 85 + 85) / 171)
+exe '1resize ' . ((&lines * 19 + 20) / 41)
+exe '2resize ' . ((&lines * 19 + 20) / 41)
 argglobal
-balt ~/code/odin/03-JavaScript/form-validation/script.js
-let s:l = 280 - ((35 * winheight(0) + 20) / 40)
+let s:l = 15 - ((14 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 280
-normal! 071|
+keepjumps 15
+normal! 07|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/code/odin/03-JavaScript/form-validation/script.js", ":p")) | buffer ~/code/odin/03-JavaScript/form-validation/script.js | else | edit ~/code/odin/03-JavaScript/form-validation/script.js | endif
+if bufexists(fnamemodify("~/code/odin/03-JavaScript/APIs/fetchData.js", ":p")) | buffer ~/code/odin/03-JavaScript/APIs/fetchData.js | else | edit ~/code/odin/03-JavaScript/APIs/fetchData.js | endif
 if &buftype ==# 'terminal'
-  silent file ~/code/odin/03-JavaScript/form-validation/script.js
+  silent file ~/code/odin/03-JavaScript/APIs/fetchData.js
 endif
-balt ~/code/odin/03-JavaScript/form-validation/index.html
-let s:l = 24 - ((23 * winheight(0) + 20) / 40)
+balt ~/code/odin/03-JavaScript/APIs/fetchData.html
+let s:l = 7 - ((6 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 24
-normal! 029|
+keepjumps 7
+normal! 050|
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 85 + 85) / 171)
-exe 'vert 2resize ' . ((&columns * 85 + 85) / 171)
+exe '1resize ' . ((&lines * 19 + 20) / 41)
+exe '2resize ' . ((&lines * 19 + 20) / 41)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
