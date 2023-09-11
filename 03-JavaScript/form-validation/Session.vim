@@ -14,7 +14,8 @@ else
   set shortmess=aoO
 endif
 badd +14 ~/code/odin/03-JavaScript/APIs/fetchData.html
-badd +13 ~/code/odin/03-JavaScript/APIs/fetchData.js
+badd +14 ~/code/odin/03-JavaScript/APIs/fetchData.js
+badd +7 ~/code/odin/03-JavaScript/APIs/fetchDataAsync.js
 argglobal
 %argdel
 edit ~/code/odin/03-JavaScript/APIs/fetchData.html
@@ -22,8 +23,8 @@ let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
-vsplit
-1wincmd h
+split
+1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -34,10 +35,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 85 + 85) / 171)
-exe 'vert 2resize ' . ((&columns * 85 + 85) / 171)
+exe '1resize ' . ((&lines * 38 + 39) / 78)
+exe '2resize ' . ((&lines * 37 + 39) / 78)
 argglobal
-let s:l = 14 - ((12 * winheight(0) + 20) / 40)
+balt ~/code/odin/03-JavaScript/APIs/fetchData.js
+let s:l = 14 - ((13 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -45,21 +47,21 @@ keepjumps 14
 normal! 029|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/code/odin/03-JavaScript/APIs/fetchData.js", ":p")) | buffer ~/code/odin/03-JavaScript/APIs/fetchData.js | else | edit ~/code/odin/03-JavaScript/APIs/fetchData.js | endif
+if bufexists(fnamemodify("~/code/odin/03-JavaScript/APIs/fetchDataAsync.js", ":p")) | buffer ~/code/odin/03-JavaScript/APIs/fetchDataAsync.js | else | edit ~/code/odin/03-JavaScript/APIs/fetchDataAsync.js | endif
 if &buftype ==# 'terminal'
-  silent file ~/code/odin/03-JavaScript/APIs/fetchData.js
+  silent file ~/code/odin/03-JavaScript/APIs/fetchDataAsync.js
 endif
-balt ~/code/odin/03-JavaScript/APIs/fetchData.html
-let s:l = 13 - ((12 * winheight(0) + 20) / 40)
+balt ~/code/odin/03-JavaScript/APIs/fetchData.js
+let s:l = 8 - ((7 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
-normal! 022|
+keepjumps 8
+normal! 0
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 85 + 85) / 171)
-exe 'vert 2resize ' . ((&columns * 85 + 85) / 171)
+exe '1resize ' . ((&lines * 38 + 39) / 78)
+exe '2resize ' . ((&lines * 37 + 39) / 78)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
