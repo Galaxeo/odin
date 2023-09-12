@@ -1,12 +1,17 @@
 let dis = document.querySelector('.display');
-async function getData() {
+async function getData(city) {
   try {
-    let weatherJson = await fetch("https://api.weatherapi.com/v1/current.json?q=london&key=edd866e2f50c435cb96162914231209")
+    let weatherJson = await fetch("https://api.weatherapi.com/v1/current.json?key=edd866e2f50c435cb96162914231209&q=" + city)
     let weatherData = await weatherJson.json();
-    console.log(weatherData.current.temp_f);
+    dis.innerText = weatherData.current.temp_f;
   }
   catch {
-    console.log("FALSE");
+    alert("Something went wrong");
   }
 }
-getData();
+const inp = document.getElementById('city');
+inp.addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    getData(inp.value);
+  }
+})
