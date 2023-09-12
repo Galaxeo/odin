@@ -1,8 +1,19 @@
 * {
   appearance: none;
+  color: #4d80e5;
 }
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(#E5E4E6 30%, #4D80E6);
+  background-repeat: no-repeat;
+}
+.weatherDis {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
