@@ -65,8 +65,18 @@ function totalIntegers(arr) {
   }
   return sum;
 }
-var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
-console.log(seven);
+
+function SumSquares(arr) {
+  let sum = 0;
+  for (var val in arr) {
+    if (Array.isArray(arr[val])) {
+      sum += SumSquares(arr[val]);
+    } else {
+      sum += arr[val] ** 2;
+    }
+  }
+  return sum;
+}
 
 // var nestedObject = {
 //   data: {
@@ -90,3 +100,7 @@ console.log(seven);
 // console.log(prodOfArr([1, 2, 8]))
 // console.log(contains(nestedObject, 44));
 // console.log(contains(nestedObject, 42));
+// var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+// console.log(seven);
+// var l = [1,2,3]; 
+// console.log(SumSquares(l)); // 1 + 4 + 9 = 14
