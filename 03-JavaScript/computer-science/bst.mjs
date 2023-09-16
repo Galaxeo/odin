@@ -8,6 +8,7 @@ class Node {
 }
 class Tree {
   constructor(arr) {
+    //too lazy to code an algo that allows for random order, so just using merge sort
     mergeSort(arr);
     this.root = buildTree(arr);
   }
@@ -21,7 +22,25 @@ function buildTree(arr) {
   root.left = buildTree(arr.slice(0, mid))
   root.right = buildTree(arr.slice(mid))
   return root;
-} null
+}
+
+// need initial function to have the root run it on itself.
+function callInsert(root, val) {
+  root = insert(root, val);
+}
+function insert(root, val) {
+  if (root == null) {
+    root = new Node(val);
+    return root;
+  }
+  if (val < root.data) {
+    root.left = insert(root.left, val);
+  } else if (val > root.data) {
+    root.right = insert(root.right, val);
+  }
+  return root;
+}
+
 let arr1 = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 let tree = new Tree(arr1);
 
@@ -38,4 +57,6 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
+prettyPrint(tree.root);
+callInsert(tree.root, 10);
 prettyPrint(tree.root);
