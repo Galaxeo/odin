@@ -13,17 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +58 ~/code/odin/03-JavaScript/computer-science/linkedlists.js
+badd +36 ~/code/odin/03-JavaScript/computer-science/mergesort.mjs
+badd +42 ~/code/odin/03-JavaScript/computer-science/bst.mjs
 argglobal
 %argdel
-edit ~/code/odin/03-JavaScript/computer-science/linkedlists.js
+edit ~/code/odin/03-JavaScript/computer-science/bst.mjs
 argglobal
-let s:l = 58 - ((18 * winheight(0) + 20) / 40)
+balt ~/code/odin/03-JavaScript/computer-science/mergesort.mjs
+let s:l = 17 - ((12 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 58
-normal! 018|
+keepjumps 17
+normal! 024|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

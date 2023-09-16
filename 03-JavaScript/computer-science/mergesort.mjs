@@ -33,6 +33,4 @@ function mergeSort(lst) {
     i += 1;
   }
 }
-lst1 = [6, 1, 3, 7, 2, 5, 4];
-mergeSort(lst1);
-console.log(lst1);
+export default mergeSort;
