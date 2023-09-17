@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +36 ~/code/odin/03-JavaScript/computer-science/mergesort.mjs
-badd +83 ~/code/odin/03-JavaScript/computer-science/bst.mjs
+badd +145 ~/code/odin/03-JavaScript/computer-science/bst.mjs
 argglobal
 %argdel
 edit ~/code/odin/03-JavaScript/computer-science/bst.mjs
@@ -27,11 +27,11 @@ set winminwidth=0
 set winwidth=1
 argglobal
 balt ~/code/odin/03-JavaScript/computer-science/mergesort.mjs
-let s:l = 85 - ((15 * winheight(0) + 20) / 40)
+let s:l = 145 - ((14 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 85
+keepjumps 145
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

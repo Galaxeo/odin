@@ -89,7 +89,58 @@ function find(root, val) {
 }
 
 function levelOrder(root) {
+  if (root == null) {
+    return
+  }
+  let queue = [];
+  queue.push(root);
 
+  while (queue.length > 0) {
+    let curr = queue.shift();
+    console.log(curr.data);
+    if (curr.left !== null) {
+      queue.push(curr.left);
+    }
+    if (curr.right !== null) {
+      queue.push(curr.right);
+    }
+  }
+}
+
+function inOrder(root) {
+  if (root === null) {
+    return;
+  }
+  inOrder(root.left);
+  console.log(root.data);
+  inOrder(root.right);
+}
+function preOrder(root) {
+  if (root === null) {
+    return;
+  }
+  console.log(root.data);
+  preOrder(root.left);
+  preOrder(root.right);
+}
+function postOrder(root) {
+  if (root === null) {
+    return;
+  }
+  preOrder(root.left);
+  preOrder(root.right);
+  console.log(root.data);
+}
+
+function height(root) {
+  if (root === null) {
+    return 0;
+  } else {
+    let lDepth = height(root.left);
+    let rDepth = height(root.right);
+
+    return Math.max(lDepth, rDepth) + 1;
+  }
 }
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -110,3 +161,4 @@ let tree = new Tree(arr1);
 tree.root = del(tree.root, 5);
 prettyPrint(tree.root);
 console.log(find(tree.root, 8).left)
+console.log(height(tree.root));
