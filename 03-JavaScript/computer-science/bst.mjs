@@ -29,7 +29,7 @@ function callInsert(root, val) {
   root = insert(root, val);
 }
 function insert(root, val) {
-  if (root == null) {
+  if (root === null) {
     root = new Node(val);
     return root;
   }
@@ -41,8 +41,39 @@ function insert(root, val) {
   return root;
 }
 
-let arr1 = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-let tree = new Tree(arr1);
+function del(root, val) {
+  if (root === null) {
+    return root;
+  }
+  if (root.data > val) {
+    root.left = del(root.left, val);
+    return root;
+  } else if (root.data < val) {
+    root.right = del(root.right, val);
+    return root;
+  }
+  // reach here if root == val
+  if (root.left === null) {
+    return root.right;
+  } else if (root.right === null) {
+    return root.left;
+  } else {
+    let parent = root;
+    // successor will always be the next highest #
+    let succ = root.right;
+    while (succ.left !== null) {
+      parent = succ;
+      succ = succ.left;
+    }
+    if (parent != root) {
+      parent.left = succ.right;
+    } else {
+      parent.right = succ.right;
+    }
+    root.data = succ.data;
+    return root;
+  }
+}
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
@@ -57,6 +88,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(tree.root);
-callInsert(tree.root, 10);
+let arr1 = [1, 23, 8, 9, 4, 3, 5, 7, 67, 6345, 324];
+let tree = new Tree(arr1);
+tree.root = del(tree.root, 5);
 prettyPrint(tree.root);
