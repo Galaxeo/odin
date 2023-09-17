@@ -75,6 +75,23 @@ function del(root, val) {
   }
 }
 
+function find(root, val) {
+  if (root == null) {
+    return null;
+  }
+  if (root.data > val) {
+    return find(root.left, val);
+  } else if (root.data < val) {
+    return find(root.right, val);
+  } else if (root.data === val) {
+    return root;
+  }
+}
+
+function levelOrder(root) {
+
+}
+
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     return;
@@ -92,3 +109,4 @@ let arr1 = [1, 23, 8, 9, 4, 3, 5, 7, 67, 6345, 324];
 let tree = new Tree(arr1);
 tree.root = del(tree.root, 5);
 prettyPrint(tree.root);
+console.log(find(tree.root, 8).left)
