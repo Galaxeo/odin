@@ -13,17 +13,18 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +18 ~/code/odin/README.md
+badd +2 .git/rebase-merge/git-rebase-todo
 argglobal
 %argdel
-edit ~/code/odin/README.md
+$argadd .git/rebase-merge/git-rebase-todo
+edit .git/rebase-merge/git-rebase-todo
 argglobal
-let s:l = 18 - ((17 * winheight(0) + 14) / 28)
+let s:l = 2 - ((1 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 18
-normal! 057|
+keepjumps 2
+normal! 08|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
