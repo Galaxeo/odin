@@ -13,55 +13,20 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +18 ~/code/odin/03-JavaScript/weather-app/index.html
-badd +7 ~/code/odin/03-JavaScript/weather-app/script.js
-badd +3 ~/code/odin/03-JavaScript/weather-app/style.css
+badd +4 ~/code/odin/03-JavaScript/test-driven-development/sum.js
+badd +4 ~/code/odin/03-JavaScript/test-driven-development/sum.test.js
+badd +5 ~/code/odin/03-JavaScript/test-driven-development/package.json
 argglobal
 %argdel
-edit ~/code/odin/03-JavaScript/weather-app/index.html
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 85 + 85) / 171)
-exe 'vert 2resize ' . ((&columns * 85 + 85) / 171)
+edit ~/code/odin/03-JavaScript/test-driven-development/sum.test.js
 argglobal
-balt ~/code/odin/03-JavaScript/weather-app/script.js
-let s:l = 18 - ((17 * winheight(0) + 20) / 40)
+balt ~/code/odin/03-JavaScript/test-driven-development/package.json
+let s:l = 1 - ((0 * winheight(0) + 38) / 77)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 18
-normal! 0
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/code/odin/03-JavaScript/weather-app/style.css", ":p")) | buffer ~/code/odin/03-JavaScript/weather-app/style.css | else | edit ~/code/odin/03-JavaScript/weather-app/style.css | endif
-if &buftype ==# 'terminal'
-  silent file ~/code/odin/03-JavaScript/weather-app/style.css
-endif
-balt ~/code/odin/03-JavaScript/weather-app/script.js
-let s:l = 4 - ((3 * winheight(0) + 20) / 40)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 4
-normal! 0
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 85 + 85) / 171)
-exe 'vert 2resize ' . ((&columns * 85 + 85) / 171)
+keepjumps 1
+normal! 021|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -69,8 +34,6 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
