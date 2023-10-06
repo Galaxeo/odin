@@ -13,11 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +12 ~/code/odin/03-JavaScript/test-driven-development/calculator.js
-badd +13 ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
+badd +15 ~/code/odin/03-JavaScript/test-driven-development/calculator.js
+badd +1 ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
+badd +18 ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.js
+badd +4 ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.test.js
 argglobal
 %argdel
-edit ~/code/odin/03-JavaScript/test-driven-development/calculator.js
+edit ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.js
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -37,28 +39,27 @@ set winwidth=1
 exe '1resize ' . ((&lines * 37 + 39) / 78)
 exe '2resize ' . ((&lines * 38 + 39) / 78)
 argglobal
-balt ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
-let s:l = 12 - ((11 * winheight(0) + 18) / 37)
+balt ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.test.js
+let s:l = 19 - ((18 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 12
-normal! 01|
+keepjumps 19
+normal! 08|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/code/odin/03-JavaScript/test-driven-development/calculator.test.js", ":p")) | buffer ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js | else | edit ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js | endif
+if bufexists(fnamemodify("~/code/odin/03-JavaScript/test-driven-development/caesarCipher.test.js", ":p")) | buffer ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.test.js | else | edit ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.test.js | endif
 if &buftype ==# 'terminal'
-  silent file ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
+  silent file ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.test.js
 endif
-balt ~/code/odin/03-JavaScript/test-driven-development/calculator.js
-let s:l = 13 - ((12 * winheight(0) + 19) / 38)
+balt ~/code/odin/03-JavaScript/test-driven-development/caesarCipher.js
+let s:l = 1 - ((0 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
-normal! 027|
+keepjumps 1
+normal! 038|
 wincmd w
-2wincmd w
 exe '1resize ' . ((&lines * 37 + 39) / 78)
 exe '2resize ' . ((&lines * 38 + 39) / 78)
 tabnext 1

@@ -1,4 +1,3 @@
-
 const calculator = require('./calculator');
 test('add', () => {
   expect(calculator.add(1, 2)).toBe(3);
