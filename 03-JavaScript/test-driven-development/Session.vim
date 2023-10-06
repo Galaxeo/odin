@@ -13,19 +13,54 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/code/odin/03-JavaScript/test-driven-development/reverseString.test.js
-badd +4 ~/code/odin/03-JavaScript/test-driven-development/reverseString.js
+badd +12 ~/code/odin/03-JavaScript/test-driven-development/calculator.js
+badd +13 ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
 argglobal
 %argdel
-edit ~/code/odin/03-JavaScript/test-driven-development/reverseString.js
+edit ~/code/odin/03-JavaScript/test-driven-development/calculator.js
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe '1resize ' . ((&lines * 37 + 39) / 78)
+exe '2resize ' . ((&lines * 38 + 39) / 78)
 argglobal
-balt ~/code/odin/03-JavaScript/test-driven-development/reverseString.test.js
-let s:l = 9 - ((8 * winheight(0) + 38) / 76)
+balt ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
+let s:l = 12 - ((11 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 9
-normal! 0
+keepjumps 12
+normal! 01|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/code/odin/03-JavaScript/test-driven-development/calculator.test.js", ":p")) | buffer ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js | else | edit ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js | endif
+if &buftype ==# 'terminal'
+  silent file ~/code/odin/03-JavaScript/test-driven-development/calculator.test.js
+endif
+balt ~/code/odin/03-JavaScript/test-driven-development/calculator.js
+let s:l = 13 - ((12 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 13
+normal! 027|
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 37 + 39) / 78)
+exe '2resize ' . ((&lines * 38 + 39) / 78)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -33,6 +68,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
