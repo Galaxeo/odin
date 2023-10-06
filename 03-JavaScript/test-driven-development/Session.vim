@@ -13,19 +13,18 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +3 ~/code/odin/03-JavaScript/test-driven-development/capitalize.js
-badd +3 ~/code/odin/03-JavaScript/test-driven-development/capitalize.test.js
-badd +4 ~/code/odin/03-JavaScript/test-driven-development/sum.test.js
+badd +1 ~/code/odin/03-JavaScript/test-driven-development/reverseString.test.js
+badd +4 ~/code/odin/03-JavaScript/test-driven-development/reverseString.js
 argglobal
 %argdel
-edit ~/code/odin/03-JavaScript/test-driven-development/capitalize.test.js
+edit ~/code/odin/03-JavaScript/test-driven-development/reverseString.js
 argglobal
-balt ~/code/odin/03-JavaScript/test-driven-development/sum.test.js
-let s:l = 4 - ((3 * winheight(0) + 38) / 76)
+balt ~/code/odin/03-JavaScript/test-driven-development/reverseString.test.js
+let s:l = 9 - ((8 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
+keepjumps 9
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
