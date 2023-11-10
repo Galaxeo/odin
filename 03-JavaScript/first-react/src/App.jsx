@@ -8,6 +8,10 @@ function ListItem({ color = "blue", fontSize = "14", animal }) {
   };
   return <li style={styl}>{animal}</li>;
 }
+function Input(props) {
+  const [value, setValue] = useState("");
+  return <input type="text" value={value}></input>;
+}
 
 function List(props) {
   return (
@@ -22,6 +26,53 @@ function List(props) {
     </ul>
   );
 }
+function Person({ first, last, age }) {
+  const [person, setPerson] = useState({ first: first, last: last, age: age });
+
+  // BAD - Don't do this!
+  const handleIncreaseAge1 = () => {
+    // mutating the current state object
+    person.age = person.age + 1;
+    setPerson(person);
+  };
+
+  // GOOD - Do this!
+  const handleIncreaseAge = () => {
+    // copy the existing person object into a new object
+    // while updating the age property
+    const newPerson = { ...person, age: person.age + 1 };
+    setPerson(newPerson);
+  };
+
+  const setFirst = (first) => {
+    const newPerson = { ...person, first: first };
+    setPerson(newPerson);
+  };
+  const setLast = (last) => {
+    const newPerson = { ...person, last: last };
+    setPerson(newPerson);
+  };
+  // Now reflects on screen from input boxes
+  return (
+    <>
+      <h1>{person.first + " " + person.last}</h1>
+      <input
+        type="text"
+        onChange={(e) => {
+          setFirst(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        onChange={(e) => {
+          setLast(e.target.value);
+        }}
+      />
+      <h2>{person.age}</h2>
+      <button onClick={handleIncreaseAge}>Increase age</button>
+    </>
+  );
+}
 
 function App() {
   const animals = ["Lion", "Cow", "Snake", "Lizard"];
@@ -34,6 +85,7 @@ function App() {
         <ul>
           <List animals={animals} />
           {animalsList}
+          <Person first="justin" last="cheok" age={22} />
         </ul>
       </div>
     </>
